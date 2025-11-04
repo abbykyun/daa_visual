@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Graph Visualizer — Dijkstra & Bellman-Ford</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Graph Algorithm Visualizer</h1>
+    <p>Dijkstra & Bellman-Ford Pathfinding Demonstration</p>
+  </header>
+
+  <div class="controls">
+    <div class="group">
+      <label>Add Node:</label>
+      <input id="newNodeName" placeholder="A, B, C..." />
+      <button id="addNodeBtn">Add</button>
+    </div>
+
+    <div class="group">
+      <label>Add Edge:</label>
+      <select id="edgeFrom"></select>
+      <select id="edgeTo"></select>
+      <input id="edgeWeight" type="number" min="1" value="1" />
+      <button id="addEdgeBtn">Add</button>
+    </div>
+
+    <div class="group">
+      <label>Random Graph:</label>
+      <input type="number" id="randN" value="6" min="2" />
+      <button id="genRand">Generate</button>
+    </div>
+
+    <div class="group">
+      <label>Directed:</label>
+      <input type="checkbox" id="directedToggle" />
+    </div>
+
+    <div class="group">
+      <label>Source:</label>
+      <select id="sourceSelect"></select>
+      <button id="runDijkstra">Dijkstra</button>
+      <button id="runBellman">Bellman-Ford</button>
+    </div>
+
+    <div class="group">
+      <button id="stepBtn">Step</button>
+      <button id="playBtn">Play</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+  </div>
+
+  <div class="status" id="status">Status: Ready</div>
+
+  <main>
+    <svg id="svgCanvas" viewBox="0 0 1200 700">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="15" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#555" />
+        </marker>
+        <marker id="arrowRed" viewBox="0 0 10 10" refX="15" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="red" />
+        </marker>
+      </defs>
+    </svg>
+  </main>
+
+  <section id="results">
+    <h2>Shortest Path Results</h2>
+    <table id="resultsTable">
+      <thead>
+        <tr><th>Node</th><th>Distance</th><th>Previous</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>Created as part of a school project on graph algorithms visualization.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
